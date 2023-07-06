@@ -1,12 +1,11 @@
-const form = document.getElementById('form');
-const name = document.getElementById('name');
-const email = document.getElementById('email');
-const phonenumber = document.getElementById('phonenumber');
+const contactForm = document.getElementById('contactForm');
+const nameInput = document.getElementById('nameInput');
+const emailInput = document.getElementById('emailInput');
+const phoneNumberInput = document.getElementById('phoneNumberInput');
 
 
-form.addEventListener('submit', e => {
+contactForm.addEventListener('submit', e => {
     e.preventDefault();
-
     validateInputs();
 });
 
@@ -28,37 +27,37 @@ const setSuccess = element => {
     inputControl.classList.remove('error');
 };
 
-const isValidEmail = email => {
+const isValidEmail = emailInput => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    return re.test(String(emailInput).toLowerCase());
 }
 
 const validateInputs = () => {
-    const nameValue = name.value.trim();
-    const emailValue = email.value.trim();
-    const phonenumberValue = phonenumber.value.trim();
+    const nameValue = nameInput.value.trim();
+    const emailValue = emailInput.value.trim();
+    const phoneNumberInputValue = phoneNumberInput.value.trim();
 
 
     if(nameValue === '') {
-        setError(name, 'Name is required');
+        setError(nameInput, 'Nama lengkap harus diisi');
     } else {
-        setSuccess(name);
+        setSuccess(nameInput);
     }
 
     if(emailValue === '') {
-        setError(email, 'Email is required');
+        setError(emailInput, 'Email harus diisi');
     } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
+        setError(emailInput, 'Alamat email tidak valid');
     } else {
-        setSuccess(email);
+        setSuccess(emailInput);
     }
 
-    if(phonenumberValue === '') {
-        setError(phonenumber, 'Phone number is required');
-    } else if (phonenumberValue.length < 11 || phonenumberValue.length > 13) {
-        setError(phonenumber, 'Phone Number invalid.')
+    if(phoneNumberInputValue === '') {
+        setError(phoneNumberInput, 'Nomor telepom harus diisi');
+    } else if (phoneNumberInputValue.length < 11 || phoneNumberInputValue.length > 13) {
+        setError(phoneNumberInput, 'Nomor telepon tidak valid.')
     } else {
-        setSuccess(phonenumber);
+        setSuccess(phoneNumberInput);
     }
 
 };
@@ -71,10 +70,10 @@ var images = [];	// Images Array
 var time = 3000;	// Time Between Switch
 	 
 // Image List
-images[0] = "img/Slide/image1.jpg";
-images[1] = "img/Slide/image2.jpg";
-images[2] = "img/Slide/image3.jpg";
-images[3] = "img/Slide/image4.jpg";
+images[0] = "img/slider/slider-image-1.jpg";
+images[1] = "img/slider/slider-image-2.jpg";
+images[2] = "img/slider/slider-image-3.jpg";
+images[3] = "img/slider/slider-image-4.jpg";
 
 // Change Image
 function changeImg(){
